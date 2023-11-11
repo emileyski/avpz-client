@@ -1,6 +1,5 @@
 import { useState } from "react";
-import PostEditor from "./PostsEditor";
-import DisplayMarkup from "./DisplayMarkup"; // Новый компонент для отображения разметки
+import ArticleEditor from "@features/article/ArticleEditor";
 
 function App() {
   const [editorValue, setEditorValue] = useState("");
@@ -8,7 +7,10 @@ function App() {
   return (
     <div>
       {/* <div style={{ display: "flex" }}> */}
-      <PostEditor editorValue={editorValue} setEditorValue={setEditorValue} />
+      <ArticleEditor
+        editorValue={editorValue}
+        setEditorValue={setEditorValue}
+      />
       {/* <DisplayMarkup markup={editorValue} /> */}
       {/* </div> */}
     </div>
