@@ -1,0 +1,40 @@
+.home {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: #f3f2ee;
+  padding: 10px;
+}
+
+.posts,
+.filters,
+.randomPeopleScreen {
+  border-radius: 15px;
+  /* background-color: #fff; */
+  flex: 1;
+  margin: 10px;
+}
+
+.filters,
+.randomPeopleScreen {
+  background-color: #fff;
+}
+
+.posts {
+  max-width: 746px;
+}
+
+.filters {
+  max-width: 200px;
+  height: 100%;
+  position: sticky;
+  top: 10px;
+  margin-left: 75px;
+}
+
+.randomPeopleScreen {
+  max-width: 314px;
+  height: 100%;
+  position: sticky;
+  top: 10px;
+}

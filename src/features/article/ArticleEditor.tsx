@@ -21,10 +21,10 @@ const MemoizedChip: React.FC<{ tag: string; onDelete: () => void }> = memo(
   (prevProps, nextProps) => prevProps.tag === nextProps.tag
 );
 
-const ArticleEditor: React.FC<{ editorValue: string; setEditorValue: any }> = ({
-  editorValue,
-  setEditorValue,
-}) => {
+const ArticleEditor: React.FC<{
+  editorValue: string;
+  setEditorValue: (value: string) => void;
+}> = ({ editorValue, setEditorValue }) => {
   const handleEditorChange = (value: string) => {
     console.clear();
     console.log(value);
@@ -80,6 +80,7 @@ const ArticleEditor: React.FC<{ editorValue: string; setEditorValue: any }> = ({
         <Grid item xs={12}>
           {/* Ваш компонент ArticleEditor */}
           <ReactQuill
+            style={{ height: "450px" }}
             theme="snow"
             value={editorValue}
             onChange={handleEditorChange}

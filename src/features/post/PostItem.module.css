@@ -1,0 +1,59 @@
+.text {
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  width: 660px;
+  /* height: 79px; */
+  margin: 20px;
+}
+
+.postImages {
+  border-radius: 15px;
+  width: 448px;
+  height: 260px;
+  object-fit: cover;
+  margin: 20px auto;
+  display: block;
+}
+
+.postName {
+  font-size: 24px;
+  line-height: 27px;
+  display: flex;
+  color: #0f1a1c;
+  align-items: center;
+  width: 609px;
+  height: 27px;
+  margin: 0 0 0 20px;
+}
+
+.ownerName {
+  line-height: 27px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.username {
+  display: flex;
+  width: 85px;
+  height: 27px;
+  margin: 20px 0 0 20px;
+}
+
+.postcard {
+  padding: 5px 0;
+  background-color: #fff;
+  position: relative;
+  border-radius: 12px;
+  width: 100%;
+  height: auto;
+  text-align: left;
+  font-size: 16px;
+  color: #000;
+  font-family: Montserrat;
+  margin-bottom: 20px;
+}

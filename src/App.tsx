@@ -1,20 +1,7 @@
-import { useState } from "react";
-import ArticleEditor from "@features/article/ArticleEditor";
+import Router from "@features/routing/components/Router";
 
 function App() {
-  const [editorValue, setEditorValue] = useState("");
-
-  return (
-    <div>
-      {/* <div style={{ display: "flex" }}> */}
-      <ArticleEditor
-        editorValue={editorValue}
-        setEditorValue={setEditorValue}
-      />
-      {/* <DisplayMarkup markup={editorValue} /> */}
-      {/* </div> */}
-    </div>
-  );
+  return <Router />;
 }
 
 export default App;

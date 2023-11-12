@@ -1,0 +1,31 @@
+/* AppLayout.module.css */
+
+body {
+  background-color: #f3f2ee;
+}
+
+.grid {
+  display: grid;
+}
+
+.hScreen {
+  height: 100vh;
+}
+
+.gridRowsAuto1fr {
+  grid-template-rows: auto 1fr;
+}
+
+.overflowScroll {
+  overflow: scroll;
+}
+
+.mxAuto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.maxW4xl {
+  max-width: 4xl;
+  /* Adjust this value according to your design */
+}

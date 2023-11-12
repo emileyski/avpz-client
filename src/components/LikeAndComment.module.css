@@ -1,0 +1,16 @@
+.likeandcomment {
+  margin-left: 20px;
+  display: flex;
+}
+
+.likeandcomment button {
+  border: none;
+  background: none;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+.likeandcomment button img {
+  margin-right: 5px;
+  /* Adjust the value as needed */
+}
