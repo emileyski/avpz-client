@@ -2,7 +2,8 @@ import { FunctionComponent } from "react";
 import styles from "./PostItem.module.css";
 import ExpandableText from "@components/ExpandableText";
 import LikeAndComment from "@components/LikeAndComment";
-import ImagePagination from "react-image-pagination";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 const PostItem: FunctionComponent = () => {
   return (
@@ -19,18 +20,17 @@ const PostItem: FunctionComponent = () => {
         The importance of being there for your children
       </b>
 
-      <div className={styles.postImages}>
-        <ImagePagination
-          pages={[
-            {
-              src: "https://s3-alpha-sig.figma.com/img/a5ec/f587/8b5ed0c149f964818537ef820570f1b1?Expires=1700438400&Signature=avFuSL5z~S3vIZaFfCV8YBpwQYe8jMelJ189xaG~cklk9Y4KazsJlnZhb0NulOQtBFXZUXe8ItjqMC6g3hVUNFYNcqy4dWX2RoBpQv46Q3949QH-UwnA3hhc8NV2o1t7~JqUtrcWs3VNHrAEEmD1dhzDoXdzHGZvK39vh4GSloJ6sYNo3FGKwgir5t~30Ia8xKdmkmiEoryKE9XDPbPl7MEE64wQFFaJ0P7GABU7VKrFSIOMR8uiwPypGoZjGdnI7PUWC8x6tFDOkOA9Sy-pht4mWs-1dDxeVsSFGQdP-R9oRSq6sGcsS6NuZmcEwE0mtCpCIlhObg1OfWJeGPU3LQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-            },
-            {
-              src: "https://png.pngtree.com/thumb_back/fw800/background/20230527/pngtree-phoenix-bird-in-flames-wallpapers-wallpapershd-image_2697352.jpg",
-            },
-          ]}
-        />
-      </div>
+      <Carousel
+        className={styles.postImages}
+        autoPlay={true}
+        showThumbs={false}
+      >
+        <img src="https://picsum.photos/500/200" />
+        <img src="https://picsum.photos/500/200" />
+        <img src="https://picsum.photos/500/200" />
+        <img src="https://picsum.photos/500/200" />
+        <img src="https://picsum.photos/500/200" />
+      </Carousel>
 
       <div className={styles.text}>
         <ExpandableText

@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, useNavigation } from "react-router-dom";
 import Loader from "./Loader";
-import Header from "./Header";
+import Header from "./Header/Header";
 import styles from "./AppLayout.module.css"; // Import your CSS module
 
 function AppLayout() {

@@ -1,6 +1,8 @@
 import AppLayout from "@components/AppLayout";
 import ArticleEditor from "@features/article/ArticleEditor";
 import Home from "@pages/Home";
+import SignIn from "@pages/SignIn";
+import SignUp from "@pages/SignUp";
 import { useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
             <Home />
           </div>
         ),
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
+      {
+        path: "/signin",
+        element: <SignIn />,
       },
       {
         path: "/about",
