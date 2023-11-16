@@ -2,7 +2,7 @@
   line-height: 27px;
   align-items: center;
   /* height: 79px; */
-  margin: 20px;
+  /* margin: 20px; */
 }
 
 .postImages {
@@ -17,12 +17,7 @@
 .postName {
   font-size: 24px;
   line-height: 27px;
-  display: flex;
   color: #0f1a1c;
-  align-items: center;
-  width: 609px;
-  height: 27px;
-  margin: 0 0 0 20px;
 }
 
 .ownerName {
@@ -35,15 +30,8 @@
   margin-right: 5px;
 }
 
-.username {
-  display: flex;
-  width: 85px;
-  height: 27px;
-  margin: 20px 0 0 20px;
-}
-
 .postcard {
-  padding: 5px 0;
+  padding: 25px 30px;
   background-color: #fff;
   position: relative;
   border-radius: 12px;

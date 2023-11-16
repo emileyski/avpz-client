@@ -1,18 +1,20 @@
 import React from "react";
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import "react-quill/dist/quill.bubble.css"; // Добавлен импорт bubble.css
+import "react-quill/dist/quill.bubble.css";
+import "./DisplayMarkup.css"; // Import a separate CSS file
 
-const DisplayMarkup: React.FC<{ markup: string }> = ({ markup }) => {
+const DisplayMarkup: React.FC<{ markup: string; expanded: boolean }> = ({
+  markup,
+  expanded = false,
+}) => {
   return (
     <ReactQuill
-      theme="bubble" // Используем bubble theme
-      value={markup}
+      theme="bubble"
+      value={expanded ? markup : markup.substring(0, 500) + "..."}
       readOnly={true}
       modules={{
-        toolbar: false, // Отключаем toolbar в режиме readOnly
+        toolbar: false,
         history: {
-          // Отключаем историю в режиме readOnly
           delay: 2000,
           maxStack: 500,
           userOnly: true,
@@ -37,6 +39,7 @@ const DisplayMarkup: React.FC<{ markup: string }> = ({ markup }) => {
         "code-block", // Добавляем поддержку code-block
         "blockquote", // Добавляем поддержку blockquote
       ]}
+      className="custom-quill" // Apply a custom class
     />
   );
 };

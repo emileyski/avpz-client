@@ -1,37 +1,31 @@
-import React, { memo, useState } from "react";
+import React from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { Button, Container, Grid, Chip } from "@mui/material";
-
-const MemoizedChip: React.FC<{ tag: string; onDelete: () => void }> = memo(
-  ({ tag, onDelete }) => (
-    <Chip
-      label={`#${tag}`}
-      onDelete={onDelete}
-      style={{
-        marginRight: "4px",
-        color: "white",
-        marginBottom: "4px",
-        backgroundColor: `#${Math.floor(Math.random() * 16777215).toString(
-          16
-        )}`,
-      }}
-    />
-  ),
-  (prevProps, nextProps) => prevProps.tag === nextProps.tag
-);
+import { Button, Container, Grid, TextField } from "@mui/material";
+import MemoizedChip from "@components/MemoizedChip";
 
 const ArticleEditor: React.FC<{
   editorValue: string;
   setEditorValue: (value: string) => void;
-}> = ({ editorValue, setEditorValue }) => {
+  handlePublish: () => void; // Updated handlePublish function signature
+  tags: string[];
+  setTags: (tags: string[]) => void;
+  title: string;
+  setTitle: (title: string) => void;
+}> = ({
+  editorValue,
+  setEditorValue,
+  handlePublish,
+  tags,
+  setTags,
+  title,
+  setTitle,
+}) => {
   const handleEditorChange = (value: string) => {
     console.clear();
     console.log(value);
     setEditorValue(value);
   };
-
-  const [tags, setTags] = useState<string[]>(["tag1", "tag2", "tag3"]);
 
   const handleAddTag = () => {
     const tag = prompt("Введите тег");
@@ -53,6 +47,7 @@ const ArticleEditor: React.FC<{
         <Grid item xs={12}>
           {/* Кнопки "Опубликовать" и "Добавить тег" с отступом */}
           <Button
+            onClick={() => handlePublish()} // Pass the title to handlePublish
             variant="contained"
             color="primary"
             style={{ marginRight: "8px" }}
@@ -62,12 +57,21 @@ const ArticleEditor: React.FC<{
           <Button
             onClick={() => handleAddTag()}
             variant="contained"
-            color="secondary"
+            color="info"
           >
             Add tag
           </Button>
         </Grid>
         <Grid item xs={12}>
+          {/* Title input field */}
+          <TextField
+            sx={{ pb: 2 }}
+            label="Title"
+            fullWidth
+            variant="outlined"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
           {/* Теги */}
           {tags.map((tag) => (
             <MemoizedChip

@@ -1,8 +1,11 @@
 import { FunctionComponent } from "react";
 import styles from "./RandomPeoples.module.css";
 import RandomPeopleItem from "./RandomPeopleItem";
+import { IUserSimplified } from "src/interfaces/IUserSimplified";
 
-const RandomPeoples: FunctionComponent = () => {
+const RandomPeoples: FunctionComponent<{ users: IUserSimplified[] }> = ({
+  users,
+}) => {
   return (
     <div className={styles.container}>
       <b className={styles.randomPeopleSpeakContainer}>
@@ -13,9 +16,9 @@ const RandomPeoples: FunctionComponent = () => {
           </p>
         </span>
       </b>
-      <RandomPeopleItem />
-      <RandomPeopleItem />
-      <RandomPeopleItem />
+      {users.map((user) => (
+        <RandomPeopleItem key={user.id} user={user} />
+      ))}
     </div>
   );
 };

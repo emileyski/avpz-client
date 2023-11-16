@@ -1,18 +1,6 @@
-.logIn1 {
-  position: absolute;
-  top: 7px;
-  left: 24px;
-  font-size: 12px;
-  font-weight: 600;
-  font-family: Montserrat;
-  color: #d2d2d4;
-  text-align: left;
-}
-
 .logIn,
 .search {
   border: 0;
-  position: absolute;
   top: calc(50% - 15px);
   height: 30px;
 }
@@ -21,10 +9,13 @@
   cursor: pointer;
   padding: 0;
   background-color: #003b93;
-  left: calc(50% + 564px);
   border-radius: 749.25px;
-  width: 82px;
-  overflow: hidden;
+  padding: 0 1rem;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: Montserrat;
+  color: #d2d2d4;
+  text-align: left;
 }
 
 .search {
@@ -35,6 +26,7 @@
   left: calc(50% - 300px);
   border-radius: 15px;
   width: 522px;
+  margin: 0 auto;
 }
 
 .header {
@@ -44,4 +36,25 @@
   background-color: #fff;
   width: 100%;
   height: 42px;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+}
+
+.buttons {
+  position: absolute;
+  right: 75px;
+}
+
+.buttons button {
+  margin-right: 10px;
+}
+
+.logo {
+  position: absolute;
+  left: 75px;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 24px;
+  color: #003b93;
 }

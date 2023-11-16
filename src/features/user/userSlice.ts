@@ -1,28 +1,31 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import getAxiosInstance from "src/api/interceptors";
+import getAxiosInstance from "src/api/interceptors";
 import { IUser } from "src/interfaces/IUser";
 
 export const fetchUserData = createAsyncThunk(
   "user/fetchUserData",
   async function (): Promise<IUser | null> {
-    // const response = await getAxiosInstance(
-    //   import.meta.env.VITE_APP_API_URL
-    // ).get("/user");
-    // return response.data || null;
+    if (!localStorage.getItem("accessToken")) return null;
 
-    return {
-      id: "e7aa3ebf-fc01-4994-82ef-07e60238c354",
-      email: "admin@gmail.com",
-      name: "Emil",
-      role: "user",
-      birthDate: new Date("1999-11-11T09:40:51.575Z"),
-      createdAt: new Date("2023-08-11T09:40:51.575Z"),
-      about: "I love programming",
-      nickname: "admin",
-      gender: "MALE",
-      picture:
-        "http://localhost:3000/api/files/634c19be-8e2f-4086-819a-85ef98041e8a",
-    };
+    const response = await getAxiosInstance(
+      import.meta.env.VITE_APP_API_URL
+    ).get("/user/profile");
+
+    return response.data || null;
+
+    // return {
+    //   id: "e7aa3ebf-fc01-4994-82ef-07e60238c354",
+    //   email: "admin@gmail.com",
+    //   name: "Emil",
+    //   role: "user",
+    //   birthDate: new Date("1999-11-11T09:40:51.575Z"),
+    //   createdAt: new Date("2023-08-11T09:40:51.575Z"),
+    //   about: "I love programming",
+    //   nickname: "admin",
+    //   gender: "MALE",
+    //   picture:
+    //     "http://localhost:3000/api/files/634c19be-8e2f-4086-819a-85ef98041e8a",
+    // };
   }
 );
 

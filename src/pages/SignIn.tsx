@@ -1,7 +1,7 @@
 import { FormSignIn } from "@features/Authentication";
-// import { fetchUserData } from "@features/User/userSlice";
+import { fetchUserData } from "@features/user/userSlice";
 import { redirect } from "react-router-dom";
-// import store from "src/store";
+import store from "src/store";
 
 const SignIn = () => {
   return <FormSignIn />;
@@ -27,7 +27,7 @@ export async function action({ request }) {
     localStorage.setItem("accessToken", data.accessToken);
     localStorage.setItem("refreshToken", data.refreshToken);
 
-    // store.dispatch(fetchUserData());
+    store.dispatch(fetchUserData());
 
     return redirect("/");
   } catch (error) {

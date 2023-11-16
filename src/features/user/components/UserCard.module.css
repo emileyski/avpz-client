@@ -1,0 +1,16 @@
+.ownerName {
+  /* line-height: 27px; */
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.username {
+  display: flex;
+  width: 85px;
+  height: 27px;
+  /* margin-top: 20px; */
+}

@@ -1,18 +1,10 @@
 import AppLayout from "@components/AppLayout";
-import ArticleEditor from "@features/article/ArticleEditor";
-import Home from "@pages/Home";
-import SignIn from "@pages/SignIn";
-import SignUp from "@pages/SignUp";
-import { useState } from "react";
+import AddPostForm from "@features/post/AddPostForm";
+import CreateArticle from "@pages/CreateArticle";
+import Home, { loader as postsLoader } from "@pages/Home";
+import SignIn, { action as signinAction } from "@pages/SignIn";
+import SignUp, { action as signupAction } from "@pages/SignUp";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
-const BaseEditor = () => {
-  const [editorValue, setEditorValue] = useState("");
-
-  return (
-    <ArticleEditor editorValue={editorValue} setEditorValue={setEditorValue} />
-  );
-};
 
 const router = createBrowserRouter([
   {
@@ -22,19 +14,26 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-          <div>
-            <Home />
-          </div>
-        ),
+        element: <Home />,
+        loader: postsLoader,
       },
       {
         path: "/signup",
         element: <SignUp />,
+        action: signupAction,
       },
       {
         path: "/signin",
         element: <SignIn />,
+        action: signinAction,
+      },
+      {
+        path: "/create-post",
+        element: <AddPostForm />,
+      },
+      {
+        path: "/create-article",
+        element: <CreateArticle />,
       },
       {
         path: "/about",

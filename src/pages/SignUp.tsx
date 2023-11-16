@@ -1,8 +1,7 @@
-// import { FormSignUp } from "@Features/Authentication";
-// import { fetchUserData } from "@Features/User/userSlice";
+import { fetchUserData } from "@features/user/userSlice";
 import { FormSignUp } from "@features/Authentication";
 import { redirect } from "react-router-dom";
-// import store from "src/store";
+import store from "src/store";
 
 const SignUp = () => {
   return <FormSignUp />;
@@ -28,7 +27,9 @@ export async function action({ request }) {
     localStorage.setItem("accessToken", data.accessToken);
     localStorage.setItem("refreshToken", data.refreshToken);
 
-    // store.dispatch(fetchUserData());
+    console.log(responce);
+
+    store.dispatch(fetchUserData());
 
     return redirect("/");
   } catch (error) {

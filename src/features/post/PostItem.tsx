@@ -4,54 +4,34 @@ import ExpandableText from "@components/ExpandableText";
 import LikeAndComment from "@components/LikeAndComment";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import { IPost } from "src/interfaces/IPost";
+import UserCard from "@features/user/components/UserCard";
 
-const PostItem: FunctionComponent = () => {
+const PostItem: FunctionComponent<{ post: IPost }> = ({ post }) => {
   return (
     <div className={styles.postcard}>
-      <div className={styles.username}>
-        <img
-          className={styles.icon}
-          alt=""
-          src="https://avatars.githubusercontent.com/u/96009930?v=3"
-        />
-        <div className={styles.ownerName}>Hakuru</div>
-      </div>
-      <b className={styles.postName}>
-        The importance of being there for your children
-      </b>
+      <UserCard user={post.user} />
+      <b className={styles.postName}>{post.title}</b>
 
       <Carousel
         className={styles.postImages}
         autoPlay={true}
         showThumbs={false}
       >
-        <img src="https://picsum.photos/500/200" />
-        <img src="https://picsum.photos/500/200" />
-        <img src="https://picsum.photos/500/200" />
-        <img src="https://picsum.photos/500/200" />
-        <img src="https://picsum.photos/500/200" />
+        {post.pictures.map((picture) => (
+          <img src={picture} key={picture} />
+        ))}
       </Carousel>
 
       <div className={styles.text}>
-        <ExpandableText
-          maxLength={200}
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad...
-        continue in full Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad... continue in full Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad... continue in full Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna aliqua. Ut enim ad... continue in full Lorem ipsum dolor
-        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua. Ut enim ad... continue in full Lorem
-        ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad... continue in
-        full"
-        />
+        <ExpandableText maxLength={200} text={post.body} />
       </div>
-      <LikeAndComment />
+      <LikeAndComment
+        commentsCount={post.comments?.length || 0}
+        defaultLikesCount={post.likeCount || 0}
+        liked={post.isLiked}
+        postId={post.id}
+      />
     </div>
   );
 };

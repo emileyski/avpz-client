@@ -43,6 +43,18 @@ const FormSignUp = () => {
           </Text>
         </FormBlock>
         <FormBlock>
+          <Text color="#808080">Nickname</Text>
+          <Input
+            type="text"
+            placeholder="Enter your nickname"
+            name="nickname"
+            disabled={isLoading}
+          />
+          <Text color="#d62424" fontSize="14px">
+            {errors?.emailError}
+          </Text>
+        </FormBlock>
+        <FormBlock>
           <Text color="#808080">Date of birth</Text>
           <Input
             type="date"
