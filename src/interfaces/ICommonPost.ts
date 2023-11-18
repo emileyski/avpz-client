@@ -9,4 +9,5 @@ export interface ICommonPost {
   comments?: IComment[];
   user?: IUserSimplified;
   likeCount?: number;
+  commentCount?: number;
 }

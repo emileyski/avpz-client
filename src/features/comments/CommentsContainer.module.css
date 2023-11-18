@@ -1,0 +1,30 @@
+.container {
+  padding-right: 10%;
+}
+
+.addCommentButton {
+  color: #0f1a1c;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 10.5px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28.5px;
+  background-color: none;
+  border-radius: 749.25px;
+  border: 0.75px solid rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+  background-color: transparent;
+  transition: all 0.5s ease-in-out;
+}
+
+.addCommentButton:hover {
+  background-color: #0f1a1c;
+  color: white;
+}
+
+.dialogActions {
+  padding: 10px 25px;
+  display: flex;
+  justify-content: space-between;
+}

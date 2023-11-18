@@ -7,7 +7,14 @@ const LikeAndComment: FunctionComponent<{
   liked?: boolean;
   postId: string;
   defaultLikesCount: number;
-}> = ({ commentsCount, liked = false, postId, defaultLikesCount }) => {
+  setShowComments?: any;
+}> = ({
+  commentsCount,
+  liked = false,
+  postId,
+  defaultLikesCount,
+  setShowComments,
+}) => {
   const [isLiked, setIsLiked] = useState(liked);
   const [likesCount, setLikesCount] = useState(defaultLikesCount);
 
@@ -38,7 +45,10 @@ const LikeAndComment: FunctionComponent<{
         {/*TODO: add likes counter here */}
         <span className={styles.text1}>{likesCount}</span>
       </button>
-      <button className={styles.comment}>
+      <button
+        className={styles.comment}
+        onClick={() => setShowComments((show) => !show)}
+      >
         <img className={styles.vectorIcon} alt="" src="comment_icon.svg" />
         <span className={styles.text}>{commentsCount}</span>
       </button>

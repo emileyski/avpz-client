@@ -15,8 +15,6 @@ const Header: FunctionComponent = () => {
   ) as IUser | null;
   const dispatch = useDispatch();
 
-  console.log(userData);
-
   const logout = async () => {
     const sure = window.confirm("Are you sure you want to log out?");
     if (!sure) return;

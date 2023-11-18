@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import styles from "./PostItem.module.css";
 import ExpandableText from "@components/ExpandableText";
 import LikeAndComment from "@components/LikeAndComment";
@@ -6,8 +6,11 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import { IPost } from "src/interfaces/IPost";
 import UserCard from "@features/user/components/UserCard";
+import CommentsContainer from "@features/comments/CommentsContainer";
 
 const PostItem: FunctionComponent<{ post: IPost }> = ({ post }) => {
+  const [showComments, setShowComments] = useState(false);
+
   return (
     <div className={styles.postcard}>
       <UserCard user={post.user} />
@@ -27,11 +30,14 @@ const PostItem: FunctionComponent<{ post: IPost }> = ({ post }) => {
         <ExpandableText maxLength={200} text={post.body} />
       </div>
       <LikeAndComment
-        commentsCount={post.comments?.length || 0}
+        commentsCount={post.commentCount || 0}
         defaultLikesCount={post.likeCount || 0}
         liked={post.isLiked}
         postId={post.id}
+        setShowComments={setShowComments}
       />
+
+      {showComments && <CommentsContainer postId={post.id} />}
     </div>
   );
 };

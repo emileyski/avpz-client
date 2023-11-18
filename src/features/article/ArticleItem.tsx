@@ -20,7 +20,12 @@ const ArticleItem: React.FC<{ article: IArticle }> = ({ article }) => {
       >
         {expanded ? "Read less..." : "Read more..."}
       </span>
-      <LikeAndComment commentsCount={article.comments?.length || 0} />
+      <LikeAndComment
+        commentsCount={article.comments?.length || 0}
+        defaultLikesCount={0}
+        liked={false}
+        postId={article.id}
+      />
     </div>
   );
 };
