@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet, useNavigation } from "react-router-dom";
 import Loader from "./Loader";
 import Header from "./Header/Header";

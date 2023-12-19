@@ -3,6 +3,7 @@ import { DarkButton } from "@components/UI/Buttons";
 import { Input } from "@components/UI/Inputs";
 import { Text } from "@components/UI/Labels";
 import { Preloader } from "@components/UI/Preloaders";
+import { Button } from "@mui/material";
 import { Link, useActionData } from "react-router-dom";
 
 const FormSignUp = () => {
@@ -11,6 +12,13 @@ const FormSignUp = () => {
 
   if (formErrors) alert(formErrors.error);
 
+  const handleContinueWithGoogle = () => {
+    window.location.href = `${import.meta.env.VITE_APP_API_URL}/auth/google`;
+  };
+
+  const handleConutinueWithGithub = () => {
+    window.location.href = `${import.meta.env.VITE_APP_API_URL}/auth/github`;
+  };
   const errors = {
     emailError: "",
     passwordError: "",
@@ -107,6 +115,21 @@ const FormSignUp = () => {
             Go to home
           </Link>
         </div>
+
+        <Button
+          onClick={handleContinueWithGoogle}
+          variant="contained"
+          color="primary"
+        >
+          Continue with Google
+        </Button>
+        <Button
+          onClick={handleConutinueWithGithub}
+          variant="contained"
+          color="primary"
+        >
+          Continue with Github
+        </Button>
       </Form>
     </FormContainer>
   );

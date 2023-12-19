@@ -11,8 +11,8 @@ const Comment: React.FC<{ defaultComment: IComment }> = ({
   defaultComment,
 }) => {
   const userData = useSelector((state: any) => state.user.userData);
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [comment, setComment] = useState<IComment>(defaultComment);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     // console.log(userData.id, comment.user.id);

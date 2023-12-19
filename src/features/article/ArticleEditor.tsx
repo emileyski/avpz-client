@@ -73,7 +73,7 @@ const ArticleEditor: React.FC<{
             onChange={(e) => setTitle(e.target.value)}
           />
           {/* Теги */}
-          {tags.map((tag) => (
+          {tags?.map((tag) => (
             <MemoizedChip
               key={tag} // Используем тег в качестве ключа
               tag={tag}

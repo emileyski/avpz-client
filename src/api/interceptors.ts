@@ -22,7 +22,7 @@ const getAxiosInstance = (baseUrl: string) => {
     async (error) => {
       const originalRequest = error.config;
 
-      if (error.response.status !== 200 && !originalRequest._retry) {
+      if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
 
         const refreshToken = localStorage.getItem("refreshToken");
@@ -51,14 +51,6 @@ const getAxiosInstance = (baseUrl: string) => {
           console.error("Ошибка при обновлении токена:", refreshError);
           localStorage.removeItem("accessToken");
           localStorage.removeItem("refreshToken");
-          // alert("U are not authorized, please login again");
-
-          // const confirm = window.confirm("Do you want to login again?");
-          // if (confirm) {
-          //   window.location.href = "/login";
-          // } else {
-          //   window.location.href = "/";
-          // }
         }
       }
 

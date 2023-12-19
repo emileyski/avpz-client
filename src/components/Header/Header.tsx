@@ -1,9 +1,7 @@
 import { FunctionComponent } from "react";
 import styles from "./Header.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import getAxiosInstance from "src/api/interceptors";
-import { clearUserData } from "@features/user/userSlice";
+import { useSelector } from "react-redux";
 import { IUser } from "src/interfaces/IUser";
 
 const Header: FunctionComponent = () => {
@@ -13,26 +11,25 @@ const Header: FunctionComponent = () => {
   const userData = useSelector(
     (state: any) => state.user.userData
   ) as IUser | null;
-  const dispatch = useDispatch();
 
-  const logout = async () => {
-    const sure = window.confirm("Are you sure you want to log out?");
-    if (!sure) return;
+  // const logout = async () => {
+  //   const sure = window.confirm("Are you sure you want to log out?");
+  //   if (!sure) return;
 
-    try {
-      const responce = await getAxiosInstance(
-        import.meta.env.VITE_APP_API_URL
-      ).post("/auth/log-out");
-    } catch (error) {
-      console.log(error);
-    }
+  //   try {
+  //     const responce = await getAxiosInstance(
+  //       import.meta.env.VITE_APP_API_URL
+  //     ).post("/auth/log-out");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
 
-    dispatch(clearUserData());
+  //   dispatch(clearUserData());
 
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
-    navigate("/signin");
-  };
+  //   localStorage.removeItem("accessToken");
+  //   localStorage.removeItem("refreshToken");
+  //   navigate("/signin");
+  // };
 
   if (["/signup", "/signin"].includes(location.pathname)) return null;
 
@@ -66,7 +63,10 @@ const Header: FunctionComponent = () => {
             >
               New article
             </button>
-            <button onClick={() => logout()} className={styles.logIn}>
+            <button
+              onClick={() => navigate("/profile")}
+              className={styles.logIn}
+            >
               {userData?.name} ({userData?.role})
             </button>
           </>
